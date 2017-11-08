@@ -6,9 +6,9 @@
     <span> {{getTimeFormat(miliSec).sec | number : '2.0-0'}} </span> :
     <span> {{getTimeFormat(miliSec).mSec | number : '2.0-0'}}</span></div>
   <div class="action-wrapper">
-    <button class="btn btn-primary" (click)="startTimer()">start</button>
-    <button class="btn btn-primary" (click)="stopTimer()">stop</button>
-    <button class="btn btn-primary" (click)="resetTimer()">reset</button>
+    <button class="btn btn-primary" (click)="startTimer()" *ngIf="!isStarted">start</button>
+    <button class="btn btn-primary" (click)="stopTimer()" *ngIf="isStarted">stop</button>
+    <button class="btn btn-primary" (click)="resetTimer()" *ngIf="isStarted">reset</button>
   </div>
 </div>
 

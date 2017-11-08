@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   timer$: Subscription = new Subscription();
   timer: Observable<number> = Observable.timer(0, 10);
   miliSec = 0;
+  isStarted = false;
 
   constructor() {
   }
@@ -21,14 +22,17 @@ export class AppComponent implements OnInit {
   }
 
   startTimer() {
+    this.isStarted = true;
     this.freshStart();
   }
 
   stopTimer() {
+    this.isStarted = false;
     this.timer$.unsubscribe();
   }
 
   resetTimer() {
+    this.isStarted = true;
     this.freshStart();
   }
 
